@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  api:
+    build:
+        context: ./api
+        dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./api:/api
+    ports:
+        - 3000:3000
+  web:
+    build:
+        context: ./web
+        dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./web:/usr/share/nginx/html
+    ports:
+        - 8080:80
